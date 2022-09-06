@@ -1,8 +1,8 @@
 package it.unimore.fum.iot.resource;
 
 import com.google.gson.Gson;
-import it.unimore.fum.iot.model.CapsulePresenceSensorDescriptor;
-import it.unimore.fum.iot.utils.CoreInterfaces;
+import it.unimore.fum.iot.model.ModeDescriptor;
+import it.unimore.fum.iot.request.MakeCoffeeRequestDescriptor;
 import it.unimore.fum.iot.utils.SenMLPack;
 import it.unimore.fum.iot.utils.SenMLRecord;
 import org.eclipse.californium.core.CoapResource;
@@ -19,27 +19,31 @@ import java.util.Optional;
  * @project coap-playground
  * @created 20/10/2020 - 21:54
  */
-public class CapsulePresenceSensorResource extends CoapResource {
+public class ModeActuatorResource extends CoapResource {
 
-	private static final String OBJECT_TITLE = "CapsulePresenceSensor";
+	private static final String OBJECT_TITLE = "ModeActuator";
 	private Gson gson;
-	private CapsulePresenceSensorDescriptor capsulePresenceSensorDescriptor;
+	private ModeDescriptor modeDescriptor;
 	private String deviceId = null;
 	private static final Number SENSOR_VERSION = 0.1;
 
-	public CapsulePresenceSensorResource(String name, String deviceId) {
+	public ModeActuatorResource(String name, String deviceId) {
 		super(name);
 		this.deviceId = deviceId;
 		init();
 	}
 
 	private void init(){
-        this.gson = new Gson();
-		this.capsulePresenceSensorDescriptor = new CapsulePresenceSensorDescriptor();
 
-		getAttributes().setTitle("capsules");
-		getAttributes().addAttribute("rt", "it.unimore.device.sensor.capsule_presence");
-		getAttributes().addAttribute("if", CoreInterfaces.CORE_S.getValue());
+        this.gson = new Gson();
+		this.modeDescriptor = new ModeDescriptor();
+
+		setObservable(true);
+		setObserveType(CoAP.Type.CON);
+
+		getAttributes().setTitle("Mode");
+		getAttributes().addAttribute("rt", "btn");
+		getAttributes().addAttribute("if", "core.a");
 		getAttributes().addAttribute("ct", Integer.toString(MediaTypeRegistry.APPLICATION_SENML_JSON));
 		getAttributes().addAttribute("ct", Integer.toString(MediaTypeRegistry.TEXT_PLAIN));
 	}
@@ -52,12 +56,15 @@ public class CapsulePresenceSensorResource extends CoapResource {
 
 			SenMLRecord senMLRecord = new SenMLRecord();
 			senMLRecord.setBn(this.deviceId);
-			senMLRecord.setN(this.getName());
 			senMLRecord.setBver(SENSOR_VERSION);
-			senMLRecord.setVb(this.capsulePresenceSensorDescriptor.getValue());
-			senMLRecord.setT(this.capsulePresenceSensorDescriptor.getTimestamp());
+			senMLRecord.setT(System.currentTimeMillis());
+
+			senMLRecord.setN("mode");
+			senMLRecord.setVs(this.modeDescriptor.getMode());
+
 
 			senMLPack.add(senMLRecord);
+
 
 			return Optional.of(this.gson.toJson(senMLPack));
 
@@ -69,7 +76,6 @@ public class CapsulePresenceSensorResource extends CoapResource {
 	@Override
 	public void handleGET(CoapExchange exchange) {
 		try{
-			this.capsulePresenceSensorDescriptor.checkCapsulePresence();
 
 			//If the request specify the MediaType as JSON or JSON+SenML
 			if(exchange.getRequestOptions().getAccept() == MediaTypeRegistry.APPLICATION_SENML_JSON ||
@@ -83,10 +89,23 @@ public class CapsulePresenceSensorResource extends CoapResource {
 					exchange.respond(CoAP.ResponseCode.INTERNAL_SERVER_ERROR);
 			}
 			else
-				exchange.respond(CoAP.ResponseCode.CONTENT, String.valueOf(this.capsulePresenceSensorDescriptor.getValue()), MediaTypeRegistry.TEXT_PLAIN);
+				exchange.respond(CoAP.ResponseCode.CONTENT, String.valueOf(this.modeDescriptor.getMode()), MediaTypeRegistry.TEXT_PLAIN);
 
 		}catch (Exception e){
 			exchange.respond(ResponseCode.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	@Override
+	public void handlePOST(CoapExchange exchange) {
+		try{
+			this.modeDescriptor.changeMode();
+			exchange.respond(ResponseCode.CHANGED);
+			changed();
+		}catch (Exception e){
+			exchange.respond(ResponseCode.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+
 }

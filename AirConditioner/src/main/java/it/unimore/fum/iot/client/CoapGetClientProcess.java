@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class CoapGetClientProcess {
 
-	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/power";
+	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/mode";
 
 	//private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/temperature";
 

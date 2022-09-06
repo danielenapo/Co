@@ -26,7 +26,7 @@ public class CoapGetSenmlClientProcess {
 
 	//private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/capsule";
 
-	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/capsule";
+	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/mode";
 
 	public static void main(String[] args) {
 		

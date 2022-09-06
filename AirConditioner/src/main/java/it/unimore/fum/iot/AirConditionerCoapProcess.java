@@ -8,17 +8,16 @@ import org.eclipse.californium.core.CoapServer;
  * @project java-coap-laboratory
  * @created 12/11/2021 - 11:57
  */
-public class CoffeeMachineCoapProcess extends CoapServer {
+public class AirConditionerCoapProcess extends CoapServer {
 
-    public CoffeeMachineCoapProcess(){
+    public AirConditionerCoapProcess(){
 
         super();
 
-        String deviceId = "coffee-machine-0001";
+        String deviceId = "air-conditioner-0001";
 
         this.add(new TemperatureSensorResource("temperature", deviceId));
-        this.add(new CapsulePresenceSensorResource("capsule", deviceId));
-        this.add(new CoffeeActuatorResource("coffee", deviceId));
+        this.add(new ModeActuatorResource("mode", deviceId));
         this.add(new SliderActuatorResource("slider", deviceId));
         this.add(new PowerActuatorResource("power", deviceId));
         this.add(new WaterPercentageResource("water", deviceId));
@@ -26,7 +25,7 @@ public class CoffeeMachineCoapProcess extends CoapServer {
 
     public static void main(String[] args) {
 
-        CoffeeMachineCoapProcess coapServer = new CoffeeMachineCoapProcess();
+        AirConditionerCoapProcess coapServer = new AirConditionerCoapProcess();
         coapServer.start();
 
         coapServer.getRoot().getChildren().forEach(resource -> {

@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class CoapPostClientProcess {
 
-	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/slider";
+	private static final String COAP_ENDPOINT = "coap://127.0.0.1:5683/mode";
 
 	public static void main(String[] args) {
 		

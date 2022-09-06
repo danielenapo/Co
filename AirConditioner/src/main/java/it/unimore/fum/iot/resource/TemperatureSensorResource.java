@@ -37,7 +37,7 @@ public class TemperatureSensorResource extends CoapResource {
         this.gson = new Gson();
 		this.temperatureSensorDescriptor = new TemperatureSensorDescriptor();
 
-		getAttributes().setTitle("internal temp");
+		getAttributes().setTitle("external temp");
 		getAttributes().addAttribute("rt", "temp3d");
 		getAttributes().addAttribute("if", "core.s");
 		getAttributes().addAttribute("ct", Integer.toString(MediaTypeRegistry.APPLICATION_SENML_JSON));

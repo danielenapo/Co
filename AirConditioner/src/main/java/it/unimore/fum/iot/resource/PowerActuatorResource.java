@@ -1,9 +1,7 @@
 package it.unimore.fum.iot.resource;
 
 import com.google.gson.Gson;
-import it.unimore.fum.iot.model.CoffeeHistoryDescriptor;
 import it.unimore.fum.iot.model.PowerDescriptor;
-import it.unimore.fum.iot.model.SliderDescriptor;
 import it.unimore.fum.iot.utils.SenMLPack;
 import it.unimore.fum.iot.utils.SenMLRecord;
 import org.eclipse.californium.core.CoapResource;

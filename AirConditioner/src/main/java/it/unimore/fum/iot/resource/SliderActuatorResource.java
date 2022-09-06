@@ -1,7 +1,6 @@
 package it.unimore.fum.iot.resource;
 
 import com.google.gson.Gson;
-import it.unimore.fum.iot.model.CoffeeHistoryDescriptor;
 import it.unimore.fum.iot.model.SliderDescriptor;
 import it.unimore.fum.iot.utils.SenMLPack;
 import it.unimore.fum.iot.utils.SenMLRecord;
@@ -31,7 +30,7 @@ public class SliderActuatorResource extends CoapResource {
         setObservable(false);
         setObserveType(CoAP.Type.CON);
 
-        getAttributes().setTitle("Sugar quantity");
+        getAttributes().setTitle("Temperature");
         getAttributes().addAttribute("rt", "slider");
         getAttributes().addAttribute("if", "core.a");
         getAttributes().addAttribute("ct", Integer.toString(MediaTypeRegistry.APPLICATION_SENML_JSON));
