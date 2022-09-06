@@ -20,7 +20,7 @@ public class AirConditionerCoapProcess extends CoapServer {
         this.add(new ModeActuatorResource("mode", deviceId));
         this.add(new SliderActuatorResource("slider", deviceId));
         this.add(new PowerActuatorResource("power", deviceId));
-        this.add(new WaterPercentageResource("water", deviceId));
+        this.add(new WaterPercentageResource("humidity", deviceId));
     }
 
     public static void main(String[] args) {

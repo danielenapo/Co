@@ -32,7 +32,7 @@ public class AppService extends Application<AppConfig> {
         deviceDescriptor.setPort(5683);
         deviceDescriptor.setProtocol("coap");
         deviceDescriptor.setDisplayName("Coffee machine");
-        File img = new File("C:\\Users\\gnele\\IdeaProjects\\laboratory-java-http-rest-api\\src\\main\\java\\it\\unimore\\fum\\iot\\services\\images\\Radioheadokcomputer.png");
+        File img = new File("C:\\Users\\gnele\\IdeaProjects\\thesis_servers\\laboratory-java-http-rest-api\\src\\main\\java\\it\\unimore\\fum\\iot\\services\\images\\solaris.jpg");
         deviceDescriptor.setImage(base64Converter(img));
 
         appConfig.getDeviceManager().createNewDevice(deviceDescriptor);
@@ -46,7 +46,7 @@ public class AppService extends Application<AppConfig> {
         deviceDescriptor.setPort(5683);
         deviceDescriptor.setProtocol("coap");
         deviceDescriptor.setDisplayName("Air Conditioner");
-        File img = new File("C:\\Users\\gnele\\IdeaProjects\\laboratory-java-http-rest-api\\src\\main\\java\\it\\unimore\\fum\\iot\\services\\images\\solaris.jpg");
+        File img = new File("C:\\Users\\gnele\\IdeaProjects\\thesis_servers\\laboratory-java-http-rest-api\\src\\main\\java\\it\\unimore\\fum\\iot\\services\\images\\Radioheadokcomputer.png");
         deviceDescriptor.setImage(base64Converter(img));
 
         appConfig.getDeviceManager().createNewDevice(deviceDescriptor);

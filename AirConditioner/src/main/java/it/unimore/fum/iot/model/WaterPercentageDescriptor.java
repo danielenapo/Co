@@ -44,7 +44,7 @@ public class WaterPercentageDescriptor {
     }
 
     public void measureTemperatureValue(){
-        this.value = this.random.nextInt(100);
+        this.value = this.random.nextInt(80);
         this.timestamp = System.currentTimeMillis();
     }
 

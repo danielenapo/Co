@@ -38,7 +38,7 @@ public class WaterPercentageResource extends CoapResource {
         this.gson = new Gson();
         this.waterPercentageDescriptor = new WaterPercentageDescriptor();
 
-        getAttributes().setTitle("Water level");
+        getAttributes().setTitle("Humidity");
         getAttributes().addAttribute("rt", "percentage");
         getAttributes().addAttribute("if", "core.s");
         getAttributes().addAttribute("ct", Integer.toString(MediaTypeRegistry.APPLICATION_SENML_JSON));
