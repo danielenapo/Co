@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/coffeMachine/java-coap-laboratory.iml" filepath="$PROJECT_DIR$/coffeMachine/java-coap-laboratory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AirConditioner/java-coap-laboratory (1).iml" filepath="$PROJECT_DIR$/AirConditioner/java-coap-laboratory (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/laboratory-java-http-rest-api/laboratory-http-api.iml" filepath="$PROJECT_DIR$/laboratory-java-http-rest-api/laboratory-http-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/thesis_servers.iml" filepath="$PROJECT_DIR$/.idea/thesis_servers.iml" />
+    </modules>
+  </component>
+</project>
