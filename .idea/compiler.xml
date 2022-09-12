@@ -7,13 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="laboratory-http-api" />
-        <module name="java-coap-laboratory" />
+        <module name="java-coap-laboratory (2)" />
         <module name="java-coap-laboratory (1)" />
+        <module name="java-coap-laboratory" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="java-coap-laboratory" target="1.8" />
       <module name="java-coap-laboratory (1)" target="1.8" />
+      <module name="java-coap-laboratory (2)" target="1.8" />
       <module name="laboratory-http-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>

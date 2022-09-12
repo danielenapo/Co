@@ -19,7 +19,8 @@ public class AppService extends Application<AppConfig> {
 
     public void run(AppConfig appConfig, Environment environment) throws Exception {
         addDeviceCoffee(appConfig);
-        addDeviceConditioner(appConfig);
+        //addDeviceConditioner(appConfig);
+        addDeviceLed(appConfig);
         //Add our defined resources
         environment.jersey().register(new DeviceResource(appConfig));
     }
@@ -52,6 +53,19 @@ public class AppService extends Application<AppConfig> {
         appConfig.getDeviceManager().createNewDevice(deviceDescriptor);
     }
 
+    private void addDeviceLed(AppConfig appConfig){
+
+        DeviceDescriptor deviceDescriptor = new DeviceDescriptor();
+        deviceDescriptor.setUuid("device00003");
+        deviceDescriptor.setIp("192.168.0.225");
+        deviceDescriptor.setPort(5683);
+        deviceDescriptor.setProtocol("coap");
+        deviceDescriptor.setDisplayName("Led light");
+        File img = new File("C:\\Users\\gnele\\IdeaProjects\\thesis_servers\\laboratory-java-http-rest-api\\src\\main\\java\\it\\unimore\\fum\\iot\\services\\images\\Radioheadokcomputer.png");
+        deviceDescriptor.setImage(base64Converter(img));
+
+        appConfig.getDeviceManager().createNewDevice(deviceDescriptor);
+    }
 
     public static String base64Converter(File file){
         Base64.Encoder encoder= Base64.getEncoder();

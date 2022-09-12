@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/coffeMachine/java-coap-laboratory.iml" filepath="$PROJECT_DIR$/coffeMachine/java-coap-laboratory.iml" />
       <module fileurl="file://$PROJECT_DIR$/AirConditioner/java-coap-laboratory (1).iml" filepath="$PROJECT_DIR$/AirConditioner/java-coap-laboratory (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/LedNoAttributes/java-coap-laboratory (2).iml" filepath="$PROJECT_DIR$/LedNoAttributes/java-coap-laboratory (2).iml" />
       <module fileurl="file://$PROJECT_DIR$/laboratory-java-http-rest-api/laboratory-http-api.iml" filepath="$PROJECT_DIR$/laboratory-java-http-rest-api/laboratory-http-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/thesis_servers.iml" filepath="$PROJECT_DIR$/.idea/thesis_servers.iml" />
     </modules>
